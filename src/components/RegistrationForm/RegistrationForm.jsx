@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 
 
-const RegisterForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -75,4 +75,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default RegistrationForm;
