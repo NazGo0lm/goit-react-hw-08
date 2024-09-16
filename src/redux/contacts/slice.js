@@ -5,6 +5,7 @@ import {
   fetchContacts,
   updateContact,
 } from './operations';
+import { logOut } from '../auth/operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -58,7 +59,10 @@ const contactsSlice = createSlice({
         state.items.splice(index, 1, action.payload);
         state.currentContact = null;
       })
-      .addCase(updateContact.rejected, handleRejected);
+      .addCase(updateContact.rejected, handleRejected)
+      .addCase(logOut.fulfilled, state => {
+        state.items = [];
+      });
   },
 });
 
